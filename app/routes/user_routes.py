@@ -6,8 +6,6 @@ from bson import ObjectId
 
 router = APIRouter()
 
-user_collection = database.get_collection("users")
-
 @router.post("/", response_description="Add new user", response_model=UserModel)
 async def create_user(user: UserModel):
     user = await user_collection.insert_one(user.dict())
