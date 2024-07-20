@@ -1,0 +1,2 @@
+uvicorn main:app --reload 
+으로 실행. 
