@@ -20,3 +20,5 @@ class MagazineModel(BaseModel):
                 "related_place_tag_number": ["P1", "P2"]
             }
         }
+#sqlalchemy 에서 맗하는 model은 db에 맵핑하기 위한 객체를 말하고 
+#pydentic 에서 말하는 model은 어떤 값의 validation을 위해서 사용된다고 함. 

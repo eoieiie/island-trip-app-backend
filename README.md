@@ -28,3 +28,46 @@ app/main.py: FastAPI 애플리케이션을 설정하고 라우터를 포함시�
 새로운 라우터 추가: 새로운 데이터를 관리하려면 새로운 라우터를 app/routes/ 디렉토리에 생성
 
 데이터베이스 컬렉션 추가: 새로운 데이터를 위한 컬렉션을 app/database.py 파일에 추가
+
+
+관계형 DB 는 ORM 이라는 걸 사용. Mysql 은 관계형이라서 orm 이고 
+몽고db는 관계형이 아니라서 odm을 사용. 
+
+mysql 할 때 우리는 ORM 이라는 걸 사용해서 SQL 쿼리를 작성하지 않고 데이터베이스 작업을 수행할거임. 예를 들어볼게 
+
+class User:
+    def __init__(self, id, name, email):
+        self.id = id
+        self.name = name
+        self.email = email
+
+라는 객체지향 언어에서의 객체가 존재한다면
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    email TEXT
+);
+
+sql의 형식은 이렇다면 
+
+from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String)
+    email = Column(String)
+
+DATABASE_URL = "sqlite:///./test.db"
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base.metadata.create_all(bind=engine)
+
+위와 같은 형식으로 User 클래스와 데이터베이스의 users 테이블이 서로 매핑. 
+
+몽고db는 odm을 사용하는데, 
