@@ -15,4 +15,4 @@ class IslandCreate(IslandBase):
 
 class Island(IslandBase):
     class Config:
-        orm_mode = True
+        from_attributes = True
