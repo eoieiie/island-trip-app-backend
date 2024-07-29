@@ -14,4 +14,4 @@ class PlaceCreate(PlaceBase):
 
 class Place(PlaceBase):
     class Config:
-        orm_mode = True
+        from_attributes = True
