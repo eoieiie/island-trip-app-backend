@@ -8,6 +8,7 @@ import io
 
 router = APIRouter()
 
+# 엔드포인트 / 이렇게 해도 될까?
 @router.get("/", status_code=status.HTTP_200_OK)
 async def get_magazines():
     """
