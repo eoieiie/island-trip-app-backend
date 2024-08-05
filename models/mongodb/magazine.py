@@ -3,9 +3,9 @@ from typing import List
 
 class Magazine(BaseModel):
     tag_number: str
-    thumbnail: str
-    main_photo: str
+    thumbnail: bytes  # 이미지 데이터를 바이너리로 저장
+    main_photo: bytes  # 이미지 데이터를 바이너리로 저장
     title: str
-    photos: List[str]
+    photos: List[bytes]  # 이미지 데이터를 바이너리로 저장
     content: str
     related_place_tags: List[str]
