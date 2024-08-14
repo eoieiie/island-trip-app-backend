@@ -1,7 +1,7 @@
 def individual_serial(magazine) -> dict:
     return {
         "id": str(magazine["_id"]),
-        "tag_number": magazine["tag_number"],
+        "island_tag_number": magazine["island_tag_number"],
         "thumbnail": magazine["thumbnail"],
         "main_photo": magazine["main_photo"],
         "title": magazine["title"],
