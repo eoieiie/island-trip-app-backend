@@ -19,7 +19,7 @@ async def get_magazines():
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
 async def create_magazine(
-    tag_number: str = Form(...),
+    island_tag_number: str = Form(...),
     title: str = Form(...),
     content: str = Form(...),
     related_place_tags: str = Form(...),
@@ -45,7 +45,7 @@ async def create_magazine(
 
     # 매거진 데이터 생성
     magazine_data = {
-        "tag_number": tag_number,
+        "island_tag_number": island_tag_number,
         "thumbnail": thumbnail_data,
         "main_photo": main_photo_data,
         "title": title,

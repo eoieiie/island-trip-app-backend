@@ -3,7 +3,7 @@ def individual_serial(post) -> dict:
         "id": str(post["_id"]),
         "island_tag_number": post["island_tag_number"],
         "place_tag_number": post["place_tag_number"],
-        "author_id": post["author_id"],
+        "user_id": post["user_id"],
         "photos": post["photos"],
         "keywords": post["keywords"],
         "rating": post["rating"],
